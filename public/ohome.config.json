@@ -1,9 +1,6 @@
+
 {
-  "kind": "firebase",
-  "apiKey": "AIzaSyBKtu9dHea9dkRHVLFxmefAgnVmTxj_uVM",
-  "authDomain": "hb-cha.firebaseapp.com",
-  "projectId": "hb-cha",
-  "storageBucket": "hb-cha.firebasestorage.app",
-  "appId": "1:583597617637:web:8b3ac71a63763f30353f0c",
-  "messagingSenderId": "583597617637"
+  "kind": "supabase",
+  "url": "https://unwmkpmxkgzkgyuqdusi.supabase.co",
+  "anonKey": "sb_publishable_w6k-e2r_VdaUxjz9oYy89g_5WMaLJ0A"
 }
