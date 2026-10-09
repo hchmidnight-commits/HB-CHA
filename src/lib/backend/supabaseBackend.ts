@@ -220,11 +220,13 @@ export async function createSupabaseBackend(
     },
 
     subscribe(coll, onChange) {
-      const ch = sb.channel(`ohome:${coll}`)
-        .on('postgres_changes', { event: '*', schema: 'public', table: coll }, () => onChange())
-        .subscribe();
-      return () => { void sb.removeChannel(ch); };
-    },
+  const topic = `ohome:${coll}:${Date.now().toString(36)}:${Math.random().toString(36).slice(2)}`;
+  const ch = sb.channel(topic)
+    .on('postgres_changes', { event: '*', schema: 'public', table: coll }, () => onChange())
+    .subscribe();
+  return () => { void sb.removeChannel(ch); };
+},
+
 
     async fetchSetting<T>(key: string) {
       const { data, error } = await sb.from('site_settings').select('value').eq('key', key).maybeSingle();
